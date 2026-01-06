@@ -29,7 +29,7 @@ export const Home = () => {
   useEffect(() => {
     const generateStars = () => {
       const newStars = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 80; i++) {
         newStars.push({
           id: i,
           x: Math.random() * 100,
@@ -69,8 +69,11 @@ export const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[linear-gradient(to_bottom_right,#0f172a,#1e3a8a_20%,#0f172a_40%,#312e81_60%,#0f172a_80%,#1e40af)]"
     >
+      {/* Animated gradient overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.1)_50%,transparent_75%)] bg-[length:250%_250%] animate-gradient-shift"></div>
+
       {/* Animated Stars Background */}
       <div className="absolute inset-0 z-0">
         {stars.map((star) => (
@@ -89,31 +92,62 @@ export const Home = () => {
         ))}
       </div>
 
-      {/* Interactive Lighting Effects */}
+      {/* Interactive Lighting Effects with linear gradient */}
       <div 
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-10 pointer-events-none opacity-60"
         style={{
-          background: `radial-gradient(circle at ${50 + mousePosition.x / 10}% ${50 + mousePosition.y / 10}%, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 20%, transparent 50%)`
+          background: `linear-gradient(${135 + mousePosition.x / 5}deg, 
+            rgba(59, 130, 246, 0.4) 0%, 
+            rgba(147, 51, 234, 0.3) 25%,
+            transparent 50%,
+            rgba(34, 211, 238, 0.3) 75%,
+            rgba(59, 130, 246, 0.4) 100%)`
         }}
       />
 
-      {/* Floating Tech Icons */}
+      {/* Diagonal gradient stripes */}
+      <div className="absolute inset-0 z-5 opacity-30 bg-[linear-gradient(45deg,transparent_48%,rgba(59,130,246,0.1)_49%,rgba(59,130,246,0.1)_51%,transparent_52%)] bg-[length:20px_20px]"></div>
+
+      {/* Floating Tech Icons with enhanced glow */}
       <div className="absolute inset-0 z-20 pointer-events-none">
-        {/* Node.js Icons */}
-        <NodeIcon className="absolute top-20 left-16 w-12 h-12 animate-float opacity-70 hover:opacity-100 transition-opacity duration-300" />
-        <NodeIcon className="absolute bottom-32 right-24 w-16 h-16 animate-float-delayed opacity-60 hover:opacity-100 transition-opacity duration-300" />
-        <NodeIcon className="absolute top-1/3 left-8 w-10 h-10 animate-pulse opacity-50" />
+        {/* Node.js Icons with glow */}
+        <div className="absolute top-20 left-16 w-12 h-12 animate-float">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#83CD29,#43a047)] rounded-full blur-xl opacity-60"></div>
+          <NodeIcon className="relative opacity-90 hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        <div className="absolute bottom-32 right-24 w-16 h-16 animate-float-delayed">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#83CD29,#66bb6a)] rounded-full blur-2xl opacity-50"></div>
+          <NodeIcon className="relative opacity-80 hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        <div className="absolute top-1/3 left-8 w-10 h-10 animate-pulse">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#83CD29,#4caf50)] rounded-full blur-lg opacity-40"></div>
+          <NodeIcon className="relative opacity-60" />
+        </div>
 
-        {/* React Icons */}
-        <ReactIcon className="absolute top-32 right-20 w-14 h-14 animate-spin-slow opacity-80 hover:opacity-100 transition-opacity duration-300" />
-        <ReactIcon className="absolute bottom-20 left-32 w-12 h-12 animate-spin-slow opacity-70 hover:opacity-100 transition-opacity duration-300" />
-        <ReactIcon className="absolute top-2/3 right-12 w-8 h-8 animate-bounce opacity-60" />
+        {/* React Icons with glow */}
+        <div className="absolute top-32 right-20 w-14 h-14 animate-spin-slow">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#61DAFB,#0ea5e9)] rounded-full blur-2xl opacity-70"></div>
+          <ReactIcon className="relative opacity-90 hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        <div className="absolute bottom-20 left-32 w-12 h-12 animate-spin-slow">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#61DAFB,#06b6d4)] rounded-full blur-xl opacity-60"></div>
+          <ReactIcon className="relative opacity-80 hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        <div className="absolute top-2/3 right-12 w-8 h-8 animate-bounce">
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#61DAFB,#38bdf8)] rounded-full blur-lg opacity-50"></div>
+          <ReactIcon className="relative opacity-70" />
+        </div>
 
-        {/* Additional animated particles */}
-        <div className="absolute top-24 left-1/3 w-3 h-3 bg-green-400 rounded-full animate-ping opacity-60"></div>
-        <div className="absolute bottom-40 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-70"></div>
-        <div className="absolute top-1/2 left-20 w-4 h-4 bg-cyan-400 rounded-full animate-bounce opacity-50"></div>
-        <div className="absolute bottom-1/3 right-16 w-3 h-3 bg-purple-400 rounded-full animate-ping delay-300 opacity-60"></div>
+        {/* Enhanced animated particles with gradients */}
+        <div className="absolute top-24 left-1/3 w-4 h-4 bg-[linear-gradient(135deg,#10b981,#34d399)] rounded-full animate-ping opacity-70 shadow-[0_0_20px_rgba(16,185,129,0.5)]"></div>
+        <div className="absolute bottom-40 right-1/3 w-3 h-3 bg-[linear-gradient(135deg,#3b82f6,#60a5fa)] rounded-full animate-pulse opacity-80 shadow-[0_0_15px_rgba(59,130,246,0.6)]"></div>
+        <div className="absolute top-1/2 left-20 w-5 h-5 bg-[linear-gradient(135deg,#06b6d4,#22d3ee)] rounded-full animate-bounce opacity-60 shadow-[0_0_25px_rgba(6,182,212,0.5)]"></div>
+        <div className="absolute bottom-1/3 right-16 w-4 h-4 bg-[linear-gradient(135deg,#a855f7,#c084fc)] rounded-full animate-ping opacity-70 shadow-[0_0_20px_rgba(168,85,247,0.5)]"></div>
+        <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-[linear-gradient(135deg,#f59e0b,#fbbf24)] rounded-full animate-pulse opacity-60 shadow-[0_0_15px_rgba(245,158,11,0.5)]"></div>
       </div>
 
       {/* Main Content */}
@@ -122,72 +156,93 @@ export const Home = () => {
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-8'
       }`}>
-        {/* Enhanced title with glowing effect */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent leading-tight relative">
-          <span className="inline-block hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
+        {/* Enhanced title with multi-layered glow effect */}
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 relative leading-tight">
+          <span className="inline-block hover:scale-105 transition-transform duration-300 bg-[linear-gradient(135deg,#60a5fa,#34d399,#a78bfa,#60a5fa)] bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient-text">
             Hi, I'm Om Gupta
           </span>
-          {/* Glowing text shadow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent blur-sm opacity-50 -z-10">
+          {/* Multiple layered glows */}
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#60a5fa,#34d399,#a78bfa)] bg-clip-text text-transparent blur-2xl opacity-50 -z-10">
+            Hi, I'm Om Gupta
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#3b82f6,#10b981,#8b5cf6)] bg-clip-text text-transparent blur-3xl opacity-30 -z-20">
             Hi, I'm Om Gupta
           </div>
         </h1>
         
-        {/* Enhanced paragraph with glass morphism */}
-        <p className="text-gray-200 text-lg mb-8 max-w-2xl mx-auto leading-relaxed backdrop-blur-lg bg-white/10 p-6 rounded-2xl border border-white/20 shadow-2xl relative">
-          I'm a Mern-stack developer who loves crafting clean, scalable web
-          applications.
+        {/* Enhanced paragraph with animated gradient border */}
+        <div className="relative max-w-2xl mx-auto mb-8 group">
+          {/* Animated gradient border */}
+          <div className="absolute -inset-0.5 bg-[linear-gradient(45deg,#3b82f6,#8b5cf6,#ec4899,#3b82f6)] bg-[length:200%_200%] rounded-2xl blur opacity-75 group-hover:opacity-100 animate-gradient-border"></div>
           
-          {/* Animated tech badges */}
-          <div className="flex justify-center mt-4 space-x-4">
-            <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm border border-green-500/30 animate-pulse">
-              Node.js
-            </span>
-            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30 animate-pulse delay-200">
-              React
-            </span>
-            <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30 animate-pulse delay-400">
-              Java
-            </span>
+          <div className="relative bg-[linear-gradient(135deg,rgba(15,23,42,0.9),rgba(30,58,138,0.8))] backdrop-blur-xl p-6 rounded-2xl border border-white/20 shadow-2xl">
+            <p className="text-gray-200 text-lg leading-relaxed">
+              I'm a <span className="font-bold bg-[linear-gradient(135deg,#60a5fa,#34d399)] bg-clip-text text-transparent">MERN Stack</span> developer who loves crafting clean, scalable web applications.
+            </p>
+            
+            {/* Animated tech badges with gradients */}
+            <div className="flex justify-center mt-4 space-x-4">
+              <span className="px-4 py-2 bg-[linear-gradient(135deg,rgba(16,185,129,0.2),rgba(5,150,105,0.3))] text-green-300 rounded-full text-sm border border-green-500/40 animate-pulse shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                Node.js
+              </span>
+              <span className="px-4 py-2 bg-[linear-gradient(135deg,rgba(59,130,246,0.2),rgba(37,99,235,0.3))] text-blue-300 rounded-full text-sm border border-blue-500/40 animate-pulse shadow-[0_0_15px_rgba(59,130,246,0.3)]" style={{animationDelay: '0.2s'}}>
+                React
+              </span>
+              <span className="px-4 py-2 bg-[linear-gradient(135deg,rgba(168,85,247,0.2),rgba(147,51,234,0.3))] text-purple-300 rounded-full text-sm border border-purple-500/40 animate-pulse shadow-[0_0_15px_rgba(168,85,247,0.3)]" style={{animationDelay: '0.4s'}}>
+                Java
+              </span>
+            </div>
           </div>
-        </p>
+        </div>
         
-        {/* Enhanced buttons with ripple effects */}
+        {/* Enhanced buttons with animated gradient backgrounds */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:space-x-4 sm:space-y-0">
           <a
             href="#projects"
-            className="group relative bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-8 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-[0_20px_40px_rgba(59, 130, 246, 0.4)] active:scale-95 overflow-hidden"
+            className="group relative overflow-hidden py-4 px-8 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 active:scale-95"
           >
-            <span className="relative z-10 flex items-center justify-center">
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#3b82f6,#8b5cf6,#ec4899,#3b82f6)] bg-[length:200%_200%] animate-gradient-bg"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(59,130,246,0.8),rgba(139,92,246,0.8))] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            <span className="relative z-10 flex items-center justify-center text-white">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
               View Projects
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+            
+            {/* Glow effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-[linear-gradient(135deg,#3b82f6,#8b5cf6)]"></div>
           </a>
           
           <a
             href="#contact"
-            className="group relative border-2 border-blue-500/70 text-blue-400 py-4 px-8 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-[0_20px_40px_rgba(59, 130, 246, 0.2)] hover:border-blue-400 active:scale-95 backdrop-blur-sm overflow-hidden"
+            className="group relative overflow-hidden py-4 px-8 rounded-full font-semibold transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 active:scale-95 backdrop-blur-sm"
           >
-            <span className="relative z-10 flex items-center justify-center">
+            {/* Animated gradient border */}
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,#3b82f6,#06b6d4,#10b981,#3b82f6)] bg-[length:200%_200%] animate-gradient-border rounded-full p-[2px]">
+              <div className="h-full w-full bg-slate-900/80 rounded-full"></div>
+            </div>
+            
+            <span className="relative z-10 flex items-center justify-center bg-[linear-gradient(135deg,#60a5fa,#34d399)] bg-clip-text text-transparent font-bold">
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               Contact Me
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Hover glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl bg-[linear-gradient(135deg,rgba(59,130,246,0.5),rgba(16,185,129,0.5))]"></div>
           </a>
         </div>
         
-        {/* Enhanced scroll indicator */}
+        {/* Enhanced scroll indicator with gradient */}
         <div className="mt-16 animate-bounce">
-          <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full mx-auto relative backdrop-blur-sm">
-            <div className="w-1 h-3 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full absolute left-1/2 top-2 transform -translate-x-1/2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-transparent bg-[linear-gradient(#0f172a,#0f172a)_padding-box,linear-gradient(135deg,#3b82f6,#06b6d4)_border-box] rounded-full mx-auto relative backdrop-blur-sm">
+            <div className="w-1 h-3 bg-[linear-gradient(to_bottom,#60a5fa,#34d399)] rounded-full absolute left-1/2 top-2 transform -translate-x-1/2 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
           </div>
-          <p className="text-blue-400/70 text-sm mt-3 font-medium">Scroll to explore my work</p>
+          <p className="bg-[linear-gradient(135deg,#60a5fa,#34d399)] bg-clip-text text-transparent text-sm mt-3 font-medium">Scroll to explore my work</p>
         </div>
       </div>
 
@@ -213,6 +268,26 @@ export const Home = () => {
           to { transform: rotate(360deg); }
         }
         
+        @keyframes gradient-shift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes gradient-text {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes gradient-border {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes gradient-bg {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        
         .animate-twinkle {
           animation: twinkle 3s ease-in-out infinite;
         }
@@ -227,6 +302,22 @@ export const Home = () => {
         
         .animate-spin-slow {
           animation: spin-slow 10s linear infinite;
+        }
+        
+        .animate-gradient-shift {
+          animation: gradient-shift 15s ease infinite;
+        }
+        
+        .animate-gradient-text {
+          animation: gradient-text 8s ease infinite;
+        }
+        
+        .animate-gradient-border {
+          animation: gradient-border 3s ease infinite;
+        }
+        
+        .animate-gradient-bg {
+          animation: gradient-bg 5s ease infinite;
         }
       `}</style>
     </section>
