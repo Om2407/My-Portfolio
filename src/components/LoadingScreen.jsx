@@ -563,7 +563,7 @@ export const LoadingScreen = ({ onComplete }) => {
           </div>
 
           {/* Enhanced Progress Bar */}
-          <div className="w-80 max-w-full mx-auto space-y-3">
+          <div className="w-50 max-w-full mx-auto space-y-3">
             <div className={`relative h-3 rounded-full overflow-hidden backdrop-blur-sm ${
               isDarkMode ? 'bg-gray-800/50 border border-gray-700' : 'bg-gray-200/50 border border-gray-300'
             }`}>
@@ -644,10 +644,10 @@ export const LoadingScreen = ({ onComplete }) => {
         isDarkMode ? 'text-gray-500' : 'text-gray-400'
       }`}>
         <p className="text-sm md:text-base italic font-light">
-          "Innovation distinguishes between a leader and a follower"
+          "win with God as your witness."
         </p>
         <p className={`text-xs mt-1 ${isDarkMode ? 'text-gray-600' : 'text-gray-500'}`}>
-          - Steve Jobs
+          - &hearts;
         </p>
       </div>
 
