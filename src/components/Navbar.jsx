@@ -129,12 +129,13 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
                 </div>
                 
                 {/* Profile Image */}
-                <div className="relative">
-                  <img
-                    src="https://i.pinimg.com/736x/f9/a0/dd/f9a0dd5d9f7ea2240650722a47b431e3.jpg"
-                    alt="OM GUPTA"
-                    className="relative w-14 h-14 rounded-full border-3 border-white/30 group-hover:border-white/50 transition-all duration-500 object-cover shadow-2xl shadow-blue-500/30 group-hover:shadow-purple-500/50"
-                  />
+       <div className="relative z-20">
+  <img
+    src="/profile.jpeg"
+    alt="OM GUPTA"
+    className="w-14 h-14 rounded-full border-3 border-white/30 group-hover:border-white/50 transition-all duration-500 object-cover shadow-2xl shadow-blue-500/30 group-hover:shadow-purple-500/50"
+  />
+
                   
                   {/* Rotating border effect */}
                   <div 
@@ -165,7 +166,7 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
                   OM GUPTA
                 </span>
                 <span className="text-xs bg-gradient-to-r from-gray-200 to-gray-300 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-cyan-300 transition-all duration-300 font-medium tracking-widest uppercase">
-                  Full Stack Developer
+                  Developer
                 </span>
               </div>
 
